@@ -17,4 +17,4 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Trigger Azure Machine Learning job
       run: |
-        az ml job create --file src/job.yml --resource-group ee-demo --workspace-name end_to_end_demo
+        az ml job create --file src/job.yml --resource-group ee-end_to_end_demo --workspace-name ee_demo

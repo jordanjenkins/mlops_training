@@ -11,6 +11,7 @@ jobs:
   train-experiment:
     name: train experiment
     runs-on: ubuntu-latest
+    environment: Development
     steps:
     - name: Check out repo
       uses: actions/checkout@main
@@ -26,8 +27,8 @@ jobs:
   train-prod:
     name: train production
     runs-on: ubuntu-latest
-    environment: PROD
-    needs: job1
+    environment: Production
+    needs: train-experiment
     steps:
     - name: Check out repo
       uses: actions/checkout@main

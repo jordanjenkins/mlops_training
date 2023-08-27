@@ -69,6 +69,7 @@ def parse_args():
     # return args
     return args
 
+
 # run script
 if __name__ == "__main__":
     # add space in logs

@@ -22,7 +22,7 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Trigger Azure Machine Learning job
       run: |
-        az ml job create --file src/job_dev.yml -g end_to_end_demo -w ee-demo
+        az ml job create --file src/job_dev.yml -g end_to_end_demo -w ee-demo -s
   train-prod:
     name: train production
     runs-on: ubuntu-latest
@@ -39,4 +39,4 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Trigger Azure Machine Learning job
       run: |
-        az ml job create --file src/job_prod.yml -g end_to_end_demo -w ee-demo
+        az ml job create --file src/job_prod.yml -g end_to_end_demo -w ee-demo -s

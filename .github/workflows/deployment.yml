@@ -1,0 +1,22 @@
+name: Deployment
+
+on:
+  workflow_dispatch:
+      
+jobs:
+  train:
+    environment: Production
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@main
+    - name: Install az ml extension
+      run: az extension add -n ml -y
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: create realtime endpoint
+      uses: az ml online-endpoint create --file ./src/endpoint.yml -g end_to_end_demo -w ee-demo
+    - name: deploy model to endpoint
+      run: az ml online-deployment create --file ./src/deployment.yml -g end_to_end_demo -w ee-demo

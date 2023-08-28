@@ -20,4 +20,4 @@ jobs:
     - name: create realtime endpoint
       run: az ml online-endpoint update --file ./src/endpoint.yml -g end_to_end_demo -w ee-demo
     - name: deploy model to endpoint
-      run: az ml online-deployment create --file ./src/deployment.yml -g end_to_end_demo -w ee-demo
+      run: az ml online-deployment update --file ./src/deployment.yml -g end_to_end_demo -w ee-demo

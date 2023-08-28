@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
       
 jobs:
-  train:
+  deploy-endpoint:
+    name: Deploy endpoint
     environment: Production
     runs-on: ubuntu-latest
     steps:
@@ -17,6 +18,6 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: create realtime endpoint
-      uses: az ml online-endpoint create --file ./src/endpoint.yml -g end_to_end_demo -w ee-demo
+      run: az ml online-endpoint create --file ./src/endpoint.yml -g end_to_end_demo -w ee-demo
     - name: deploy model to endpoint
       run: az ml online-deployment create --file ./src/deployment.yml -g end_to_end_demo -w ee-demo

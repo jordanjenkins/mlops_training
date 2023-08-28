@@ -5,7 +5,7 @@ on:
       
 jobs:
   deploy-endpoint:
-    name: Deploy endpoint
+    name: Deploy endpoints
     environment: Production
     runs-on: ubuntu-latest
     steps:

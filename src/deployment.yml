@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
 name: blue
-endpoint_name: db-lr-ee-demo
+endpoint_name: db-lr-ee-demo2
 model: azureml:Diabetes-LR:1
 instance_type: Standard_DS3_v2
 instance_count: 1
